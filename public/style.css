@@ -1,0 +1,25 @@
+.about-img-wrap {
+  position: relative;
+}
+
+.corner-image {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 50;
+
+  border: 4px solid #ffffff;   /* ← ADD THIS LINE */
+}
+@media (max-width: 768px) {
+  .corner-image {
+    width: 150px;
+    height: 150px;
+    top: -20px;
+    right: -20px;
+  }
+}
