@@ -17,8 +17,8 @@
 }
 @media (max-width: 768px) {
   .corner-image {
-    width: 150px;
-    height: 150px;
+    width: 80px;
+    height: 80px;
     top: -20px;
     right: -20px;
   }
