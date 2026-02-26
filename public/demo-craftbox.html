@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>CraftBox India – Artisan Marketplace</title>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--saffron:#e8852a;--saffron-light:#fdf0e0;--maroon:#8b1a1a;--cream:#fdf6ee;--dark:#1a0e06;--grey:#7a6a5a;--border:#e8d8c8;--white:#fff}
+body{font-family:'Raleway',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(253,246,238,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 44px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Yeseva One',serif;font-size:1.4rem;color:var(--dark)}
+.nav-logo .accent{color:var(--saffron)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:600;color:var(--grey);transition:color .2s}
+.nav-links a:hover{color:var(--saffron)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.cart{font-size:1.3rem;cursor:pointer;position:relative}
+.cart-cnt{position:absolute;top:-5px;right:-6px;background:var(--maroon);color:#fff;font-size:.55rem;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nav-sell{background:var(--maroon);color:#fff;padding:9px 20px;border-radius:4px;font-size:.8rem;font-weight:700}
+.nav-shop{background:var(--saffron);color:#fff;padding:9px 20px;border-radius:4px;font-size:.8rem;font-weight:700}
+
+/* HERO */
+.hero{padding:100px 44px 60px;background:linear-gradient(135deg,#3d0e0e 0%,#6b2020 40%,#1a0e06 100%);position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'🕌';position:absolute;right:-60px;top:50%;transform:translateY(-50%);font-size:300px;opacity:.04;line-height:1}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e8852a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.hero-tag{display:inline-block;background:rgba(232,133,42,.2);border:1px solid rgba(232,133,42,.4);color:var(--saffron);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;border-radius:2px;margin-bottom:24px}
+.hero h1{font-family:'Yeseva One',serif;font-size:clamp(2.6rem,6vw,4.5rem);color:#fff;line-height:1.1;margin-bottom:18px}
+.hero h1 em{color:var(--saffron)}
+.hero-sub{font-size:.97rem;color:rgba(255,255,255,.6);line-height:1.85;margin-bottom:36px;font-weight:400}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:50px}
+.btn-saffron{background:var(--saffron);color:#fff;padding:14px 30px;border-radius:4px;font-size:.86rem;font-weight:700;transition:all .3s;display:inline-block}
+.btn-saffron:hover{background:#d4731e;transform:translateY(-2px)}
+.btn-seller{background:transparent;color:#fff;padding:14px 30px;border-radius:4px;font-size:.86rem;font-weight:700;border:1px solid rgba(255,255,255,.3);transition:all .3s;display:inline-block}
+.btn-seller:hover{border-color:#fff}
+.hero-stats{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;padding-top:36px;border-top:1px solid rgba(255,255,255,.08)}
+.h-stat{text-align:center}
+.h-stat-n{font-family:'Yeseva One',serif;font-size:2rem;color:var(--saffron)}
+.h-stat-l{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.08em;margin-top:3px}
+
+/* CRAFT STATES */
+.states{background:var(--saffron);padding:18px 44px;display:flex;justify-content:center;gap:36px;flex-wrap:wrap}
+.state-tag{display:flex;align-items:center;gap:7px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.85)}
+
+/* CATEGORIES */
+.categories{padding:80px 44px;background:var(--cream)}
+.sec-head{text-align:center;margin-bottom:50px}
+.sec-head h2{font-family:'Yeseva One',serif;font-size:2.4rem;color:var(--dark);margin-bottom:8px}
+.sec-head p{font-size:.88rem;color:var(--grey)}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;max-width:1100px;margin:0 auto}
+.cat-card{background:#fff;border-radius:8px;overflow:hidden;text-align:center;padding:28px 16px;border:1px solid var(--border);cursor:pointer;transition:all .3s}
+.cat-card:hover{border-color:var(--saffron);transform:translateY(-4px);box-shadow:0 8px 30px rgba(232,133,42,.1)}
+.cat-icon{font-size:2.4rem;margin-bottom:10px}
+.cat-name{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:3px}
+.cat-count{font-size:.72rem;color:var(--grey)}
+
+/* PRODUCTS */
+.products{padding:80px 44px;background:#fff}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;max-width:1200px;margin:0 auto}
+.prod-card{border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:all .3s;cursor:pointer;background:var(--cream)}
+.prod-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(139,26,26,.08)}
+.prod-img{height:220px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative}
+.p1{background:linear-gradient(135deg,#f5e6d0,#e8c89a)}
+.p2{background:linear-gradient(135deg,#dce8f0,#b0cce0)}
+.p3{background:linear-gradient(135deg,#f0dce8,#e0b0cc)}
+.p4{background:linear-gradient(135deg,#dcf0dc,#a8d8a8)}
+.p5{background:linear-gradient(135deg,#f0e8dc,#e0c8a8)}
+.p6{background:linear-gradient(135deg,#e8dcf0,#c8a8e0)}
+.prod-origin{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.6);color:#fff;font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:2px}
+.prod-badge{position:absolute;top:10px;right:10px;background:var(--saffron);color:#fff;font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:2px}
+.prod-body{padding:16px}
+.prod-vendor{font-size:.68rem;font-weight:700;color:var(--saffron);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.prod-name{font-family:'Yeseva One',serif;font-size:1rem;color:var(--dark);margin-bottom:4px}
+.prod-desc{font-size:.76rem;color:var(--grey);line-height:1.6;margin-bottom:10px}
+.prod-footer{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-family:'Yeseva One',serif;font-size:1.1rem;color:var(--maroon)}
+.add-btn{background:var(--dark);color:#fff;border:none;padding:8px 14px;border-radius:3px;font-size:.72rem;font-weight:700;cursor:pointer;font-family:'Raleway',sans-serif;transition:all .2s}
+.add-btn:hover{background:var(--maroon)}
+
+/* VENDOR CTA */
+.vendor-cta{background:linear-gradient(135deg,#8b1a1a,#6b1212);padding:80px 44px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:768px){.vendor-cta{grid-template-columns:1fr}}
+.vc-left h2{font-family:'Yeseva One',serif;font-size:2.4rem;color:#fff;margin-bottom:14px}
+.vc-left p{color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.85;margin-bottom:28px}
+.vc-features{display:flex;flex-direction:column;gap:10px}
+.vc-feat{display:flex;align-items:center;gap:10px;font-size:.84rem;color:rgba(255,255,255,.75)}
+.vc-feat::before{content:'✓';color:var(--saffron);font-weight:700}
+.vc-form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:28px}
+.vc-form h3{font-family:'Yeseva One',serif;font-size:1.3rem;color:#fff;margin-bottom:20px}
+.vc-inp{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:12px 15px;color:#fff;font-family:'Raleway',sans-serif;font-size:.86rem;outline:none;margin-bottom:12px;transition:border-color .2s}
+.vc-inp:focus{border-color:var(--saffron)}
+.vc-inp::placeholder{color:rgba(255,255,255,.35)}
+
+footer{background:var(--dark);padding:28px 44px;display:flex;justify-content:space-between;align-items:center;font-size:.76rem;color:rgba(255,255,255,.25);flex-wrap:wrap;gap:10px}
+footer span{color:var(--saffron)}
+
+.demo-badge{position:fixed;top:74px;right:20px;background:var(--saffron);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:20px;z-index:999;box-shadow:0 4px 20px rgba(232,133,42,.4)}
+
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:80px 20px 40px}
+  .states{padding:14px 20px;gap:20px}
+  .categories,.products,.vendor-cta{padding:60px 20px}
+  footer{padding:20px}
+}
+</style>
+</head>
+<body>
+<div class="demo-badge">🪔 Demo Site</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🪔 Craft<span class="accent">Box</span> India</div>
+    <ul class="nav-links">
+      <li><a href="#categories">Shop</a></li>
+      <li><a href="#products">Bestsellers</a></li>
+      <li><a href="#vendor">Sell With Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="cart">🛒<div class="cart-cnt">4</div></div>
+      <a href="#vendor" class="nav-sell">Become a Seller</a>
+      <a href="#products" class="nav-shop">Shop Now</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">200+ Artisans · Across 18 Indian States</div>
+    <h1>India's Crafts.<br><em>World's</em> Stage.</h1>
+    <p class="hero-sub">Handmade by master craftspeople from Rajasthan to Kerala. Every purchase supports a artisan family directly — zero middlemen, full transparency.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-saffron">Shop Handmade</a>
+      <a href="#vendor" class="btn-seller">Sell Your Craft</a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-n">200+</div><div class="h-stat-l">Artisan Vendors</div></div>
+      <div class="h-stat"><div class="h-stat-n">18</div><div class="h-stat-l">States Represented</div></div>
+      <div class="h-stat"><div class="h-stat-n">4,800+</div><div class="h-stat-l">Products Listed</div></div>
+      <div class="h-stat"><div class="h-stat-n">60</div><div class="h-stat-l">Days to 200 Vendors</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="states">
+  <div class="state-tag">🏜️ Rajasthan</div>
+  <div class="state-tag">🌴 Kerala</div>
+  <div class="state-tag">🎨 Gujarat</div>
+  <div class="state-tag">🪷 Odisha</div>
+  <div class="state-tag">🌿 Assam</div>
+  <div class="state-tag">🏔️ Kashmir</div>
+</div>
+
+<section class="categories" id="categories">
+  <div class="sec-head">
+    <h2>Shop by Craft</h2>
+    <p>Centuries of tradition, made by hand, shipped to your door</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card"><div class="cat-icon">🧵</div><div class="cat-name">Block Print Textiles</div><div class="cat-count">342 products</div></div>
+    <div class="cat-card"><div class="cat-icon">🪔</div><div class="cat-name">Terracotta & Pottery</div><div class="cat-count">218 products</div></div>
+    <div class="cat-card"><div class="cat-icon">🪡</div><div class="cat-name">Handloom Fabrics</div><div class="cat-count">465 products</div></div>
+    <div class="cat-card"><div class="cat-icon">💎</div><div class="cat-name">Tribal Jewellery</div><div class="cat-count">189 products</div></div>
+    <div class="cat-card"><div class="cat-icon">🖼️</div><div class="cat-name">Madhubani Art</div><div class="cat-count">127 products</div></div>
+    <div class="cat-card"><div class="cat-icon">🧺</div><div class="cat-name">Bamboo & Cane</div><div class="cat-count">98 products</div></div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="sec-head"><h2>Bestsellers This Week</h2><p>Curated by our editorial team from verified artisans</p></div>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img p1"><span class="prod-origin">📍 Jaipur, RJ</span><span class="prod-badge">Bestseller</span>🎨</div><div class="prod-body"><div class="prod-vendor">Sangam Block Prints</div><div class="prod-name">Hand Block Print Kurta</div><div class="prod-desc">Natural dyes, 100% cotton, dabu resist technique. Handprinted by 3rd-gen artisans.</div><div class="prod-footer"><div class="prod-price">₹1,850</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Cart</button></div></div></div>
+    <div class="prod-card"><div class="prod-img p2"><span class="prod-origin">📍 Kutch, GJ</span>🏺</div><div class="prod-body"><div class="prod-vendor">Rann Pottery Co.</div><div class="prod-name">Rann Terracotta Vase Set</div><div class="prod-desc">Hand-thrown terracotta, traditional Kutchi motifs. Set of 3 in graduating sizes.</div><div class="prod-footer"><div class="prod-price">₹2,400</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Cart</button></div></div></div>
+    <div class="prod-card"><div class="prod-img p3"><span class="prod-origin">📍 Varanasi, UP</span><span class="prod-badge">New</span>🧣</div><div class="prod-body"><div class="prod-vendor">Banarasi Heritage</div><div class="prod-name">Banarasi Silk Dupatta</div><div class="prod-desc">Pure Banarasi silk with zari border. Woven on traditional pit looms, 12h per piece.</div><div class="prod-footer"><div class="prod-price">₹3,200</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Cart</button></div></div></div>
+    <div class="prod-card"><div class="prod-img p4"><span class="prod-origin">📍 Jagdalpur, CG</span>💎</div><div class="prod-body"><div class="prod-vendor">Bastar Tribal Arts</div><div class="prod-name">Dhokra Brass Elephant</div><div class="prod-desc">Lost-wax cast brass sculpture by Bastar tribal craftspeople. Unique, one-of-a-kind piece.</div><div class="prod-footer"><div class="prod-price">₹1,650</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Cart</button></div></div></div>
+  </div>
+</section>
+
+<section class="vendor-cta" id="vendor">
+  <div class="vc-left">
+    <h2>Sell Your Craft to the World</h2>
+    <p>Join 200+ artisan vendors already selling on CraftBox India. We handle payments, logistics, GST invoicing, and international shipping — you focus on your craft.</p>
+    <div class="vc-features">
+      <div class="vc-feat">Zero commission for first 3 months</div>
+      <div class="vc-feat">Automated GST invoicing included</div>
+      <div class="vc-feat">Shiprocket integration — ship anywhere in India</div>
+      <div class="vc-feat">Dedicated onboarding support in your language</div>
+      <div class="vc-feat">International shipping to 40+ countries</div>
+    </div>
+  </div>
+  <div class="vc-form">
+    <h3>Register as a Vendor</h3>
+    <input class="vc-inp" placeholder="Your Full Name"/>
+    <input class="vc-inp" placeholder="WhatsApp Number" type="tel"/>
+    <input class="vc-inp" placeholder="State & City"/>
+    <input class="vc-inp" placeholder="Type of Craft"/>
+    <button class="btn-saffron" style="width:100%" onclick="alert('Application received! Our team will contact you on WhatsApp within 48 hours.')">Apply to Join →</button>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 CraftBox India</span>
+  <span>Website by <span>Peak Digital</span></span>
+</footer>
+</body>
+</html>

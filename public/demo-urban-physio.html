@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Urban Physio – Physiotherapy Clinic Pune</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--teal:#0d7377;--teal-light:#e6f4f4;--teal-dark:#085458;--orange:#f4845f;--text:#1a2332;--grey:#64748b;--border:#e2e8f0;--white:#fff;--bg:#f8fafc}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 48px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;background:var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.logo-text{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--text)}
+.logo-text span{color:var(--teal)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.84rem;font-weight:500;color:var(--grey);transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{background:var(--teal);color:#fff;padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:var(--teal-dark)}
+
+.hero{padding:120px 48px 80px;background:linear-gradient(135deg,var(--teal-light) 0%,#fff 60%);position:relative;overflow:hidden}
+.hero::after{content:'⊕';position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-size:400px;color:rgba(13,115,119,.04);line-height:1}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr}}
+.hero-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(13,115,119,.1);border:1px solid rgba(13,115,119,.2);color:var(--teal);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:22px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,4.5vw,3.6rem);color:var(--text);line-height:1.15;margin-bottom:18px}
+.hero h1 em{color:var(--teal);font-style:italic}
+.hero p{font-size:.97rem;color:var(--grey);line-height:1.85;margin-bottom:34px;font-weight:400}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-teal{background:var(--teal);color:#fff;padding:13px 28px;border-radius:8px;font-size:.88rem;font-weight:600;transition:all .2s;display:inline-block}
+.btn-teal:hover{background:var(--teal-dark);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--teal);padding:13px 28px;border-radius:8px;font-size:.88rem;font-weight:600;border:2px solid var(--teal);transition:all .2s;display:inline-block}
+.btn-outline:hover{background:var(--teal-light)}
+.hero-card{background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(13,115,119,.12);padding:30px;border:1px solid rgba(13,115,119,.08)}
+.rating-row{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.stars{color:#f59e0b;font-size:1.1rem}
+.rating-text strong{display:block;font-size:1rem;font-weight:700;color:var(--text)}
+.rating-text span{font-size:.78rem;color:var(--grey)}
+.avail{margin-bottom:20px}
+.avail-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+.slot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.slot{padding:9px;background:var(--teal-light);border-radius:6px;text-align:center;font-size:.75rem;font-weight:600;color:var(--teal);cursor:pointer;transition:all .2s;border:1px solid transparent}
+.slot:hover,.slot.selected{background:var(--teal);color:#fff}
+.slot.taken{background:#f1f5f9;color:var(--border);cursor:not-allowed;text-decoration:line-through}
+.book-slot-btn{width:100%;background:var(--orange);color:#fff;border:none;padding:13px;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:12px}
+.book-slot-btn:hover{background:#e07350}
+
+.trust{background:var(--teal);padding:36px 48px;display:flex;justify-content:center;gap:60px;flex-wrap:wrap}
+.trust-item{text-align:center;color:#fff}
+.trust-n{font-family:'DM Serif Display',serif;font-size:2.2rem}
+.trust-l{font-size:.72rem;opacity:.7;font-weight:500;letter-spacing:.06em;margin-top:2px}
+
+.services{padding:90px 48px;background:var(--bg)}
+.services h2{font-family:'DM Serif Display',serif;font-size:2.5rem;color:var(--text);text-align:center;margin-bottom:10px}
+.services-sub{text-align:center;color:var(--grey);font-size:.9rem;margin-bottom:54px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.svc{background:#fff;border-radius:12px;padding:28px;border:1px solid var(--border);transition:all .3s;cursor:default}
+.svc:hover{border-color:var(--teal);box-shadow:0 8px 30px rgba(13,115,119,.1);transform:translateY(-3px)}
+.svc-icon{font-size:2rem;margin-bottom:14px}
+.svc h3{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.svc p{font-size:.83rem;color:var(--grey);line-height:1.75}
+
+.team{padding:90px 48px;background:#fff}
+.team h2{font-family:'DM Serif Display',serif;font-size:2.5rem;text-align:center;margin-bottom:54px;color:var(--text)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.therapist{border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:transform .3s}
+.therapist:hover{transform:translateY(-4px)}
+.th-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:4rem}
+.th-bg1{background:linear-gradient(135deg,#e6f4f4,#b8e0e0)}
+.th-bg2{background:linear-gradient(135deg,#fce7df,#f4c4b0)}
+.th-bg3{background:linear-gradient(135deg,#ede9fe,#c4b5fd)}
+.th-body{padding:20px}
+.th-name{font-weight:700;font-size:1rem;color:var(--text);margin-bottom:3px}
+.th-spec{font-size:.78rem;color:var(--teal);font-weight:600}
+.th-exp{font-size:.75rem;color:var(--grey);margin-top:6px}
+
+.reviews{padding:90px 48px;background:var(--bg)}
+.reviews h2{font-family:'DM Serif Display',serif;font-size:2.5rem;text-align:center;margin-bottom:54px;color:var(--text)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.rev{background:#fff;border-radius:12px;padding:26px;border:1px solid var(--border)}
+.rev-stars{color:#f59e0b;margin-bottom:10px}
+.rev-text{font-size:.86rem;color:var(--grey);line-height:1.8;margin-bottom:14px}
+.rev-author strong{display:block;font-size:.82rem;font-weight:700;color:var(--text)}
+.rev-author span{font-size:.74rem;color:var(--grey)}
+
+.cta-section{background:var(--teal-dark);padding:80px 48px;text-align:center}
+.cta-section h2{font-family:'DM Serif Display',serif;font-size:2.4rem;color:#fff;margin-bottom:14px}
+.cta-section p{color:rgba(255,255,255,.65);margin-bottom:36px;font-size:.95rem}
+
+footer{background:var(--text);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:rgba(255,255,255,.35);flex-wrap:wrap;gap:10px}
+footer span{color:var(--teal)}
+
+.demo-badge{position:fixed;top:78px;right:20px;background:var(--teal);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:20px;z-index:999;box-shadow:0 4px 20px rgba(13,115,119,.4)}
+
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:90px 20px 50px}
+  .trust{padding:26px 20px;gap:30px}
+  .services,.team,.reviews,.cta-section{padding:60px 20px}
+  footer{padding:20px}
+}
+</style>
+</head>
+<body>
+<div class="demo-badge">🏥 Demo Site</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><div class="logo-icon">🫀</div><div class="logo-text">Urban<span>Physio</span></div></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Our Team</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#book">Contact</a></li>
+    </ul>
+    <a href="#book" class="nav-cta">Book Appointment</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-chip">🏆 #1 Rated Physiotherapy · Pune</div>
+      <h1>Move Better.<br>Live <em>Pain-Free.</em><br>Feel Stronger.</h1>
+      <p>Expert physiotherapy for sports injuries, back pain, post-surgery rehab and chronic conditions. Evidence-based treatment, measurable outcomes.</p>
+      <div class="hero-btns">
+        <a href="#book" class="btn-teal">Book Appointment</a>
+        <a href="#services" class="btn-outline">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-card" id="book">
+      <div class="rating-row">
+        <div class="stars">★★★★★</div>
+        <div class="rating-text"><strong>4.9 / 5.0</strong><span>from 340+ Google reviews</span></div>
+      </div>
+      <div class="avail">
+        <div class="avail-title">Available Slots · Today</div>
+        <div class="slot-grid">
+          <div class="slot taken">9:00 AM</div>
+          <div class="slot taken">9:30 AM</div>
+          <div class="slot selected" onclick="selectSlot(this)">10:00 AM</div>
+          <div class="slot" onclick="selectSlot(this)">11:00 AM</div>
+          <div class="slot taken">11:30 AM</div>
+          <div class="slot" onclick="selectSlot(this)">2:00 PM</div>
+          <div class="slot" onclick="selectSlot(this)">3:30 PM</div>
+          <div class="slot taken">4:00 PM</div>
+          <div class="slot" onclick="selectSlot(this)">5:00 PM</div>
+        </div>
+      </div>
+      <input style="width:100%;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:11px 14px;font-size:.88rem;font-family:inherit;outline:none;margin-bottom:8px;color:#1a2332" placeholder="Your Name"/>
+      <input style="width:100%;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:11px 14px;font-size:.88rem;font-family:inherit;outline:none;color:#1a2332" placeholder="Phone Number" type="tel"/>
+      <button class="book-slot-btn" onclick="alert('Appointment booked! You\'ll receive a WhatsApp confirmation shortly.')">Confirm Appointment →</button>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-item"><div class="trust-n">8+</div><div class="trust-l">Years in Pune</div></div>
+  <div class="trust-item"><div class="trust-n">4,200+</div><div class="trust-l">Patients Treated</div></div>
+  <div class="trust-item"><div class="trust-n">12</div><div class="trust-l">Specialist Therapists</div></div>
+  <div class="trust-item"><div class="trust-n">97%</div><div class="trust-l">Recovery Rate</div></div>
+</div>
+
+<section class="services" id="services">
+  <h2>What We Treat</h2>
+  <p class="services-sub">Comprehensive physiotherapy across all specialisations</p>
+  <div class="svc-grid">
+    <div class="svc"><div class="svc-icon">🏃</div><h3>Sports Injury</h3><p>From ACL tears to rotator cuff injuries — return to sport faster with our sports rehab protocols.</p></div>
+    <div class="svc"><div class="svc-icon">🦴</div><h3>Back &amp; Spine</h3><p>Evidence-based treatment for disc herniation, sciatica, and chronic lower back pain.</p></div>
+    <div class="svc"><div class="svc-icon">🤸</div><h3>Post-Surgery Rehab</h3><p>Carefully structured recovery programs following orthopaedic and neurological surgeries.</p></div>
+    <div class="svc"><div class="svc-icon">🧠</div><h3>Neuro Physiotherapy</h3><p>Specialised care for stroke, Parkinson's and other neurological conditions improving mobility and independence.</p></div>
+    <div class="svc"><div class="svc-icon">🤰</div><h3>Women's Health</h3><p>Prenatal and postnatal care including pelvic floor therapy and post-caesarean rehabilitation.</p></div>
+    <div class="svc"><div class="svc-icon">🧓</div><h3>Geriatric Care</h3><p>Balance training, fall prevention and joint pain management tailored for older adults.</p></div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <h2>Meet Our Therapists</h2>
+  <div class="team-grid">
+    <div class="therapist"><div class="th-img th-bg1">👨‍⚕️</div><div class="th-body"><div class="th-name">Dr. Vikram Patil</div><div class="th-spec">Sports & Orthopaedic</div><div class="th-exp">12 years experience</div></div></div>
+    <div class="therapist"><div class="th-img th-bg2">👩‍⚕️</div><div class="th-body"><div class="th-name">Dr. Sneha Joshi</div><div class="th-spec">Women's Health</div><div class="th-exp">8 years experience</div></div></div>
+    <div class="therapist"><div class="th-img th-bg3">👨‍⚕️</div><div class="th-body"><div class="th-name">Dr. Arjun Mehta</div><div class="th-spec">Neuro Rehabilitation</div><div class="th-exp">10 years experience</div></div></div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <h2>Patient Stories</h2>
+  <div class="rev-grid">
+    <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"After my knee surgery I could barely walk. Three months with Dr. Patil and I'm back running 5k. Truly life-changing care."</p><div class="rev-author"><strong>Siddharth K.</strong><span>Post ACL Reconstruction</span></div></div>
+    <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"The online booking is so convenient and the reminders on WhatsApp are a lifesaver. The treatment for my back pain worked in 4 weeks."</p><div class="rev-author"><strong>Priya D.</strong><span>Chronic Back Pain</span></div></div>
+    <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"Dr. Sneha guided me through my entire pregnancy with such expertise and warmth. My postnatal recovery was smooth and quick."</p><div class="rev-author"><strong>Anita M.</strong><span>Prenatal &amp; Postnatal Care</span></div></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Start Your Recovery Today</h2>
+  <p>Same-day appointments available. Online booking open 24/7.</p>
+  <a href="#book" class="btn-teal" style="font-size:.9rem;padding:15px 36px">Book an Appointment →</a>
+</section>
+
+<footer>
+  <span>© 2025 Urban Physio · Koregaon Park, Pune</span>
+  <span>Website by <span>Peak Digital</span></span>
+</footer>
+
+<script>
+function selectSlot(el){
+  if(el.classList.contains('taken'))return;
+  document.querySelectorAll('.slot').forEach(function(s){s.classList.remove('selected')});
+  el.classList.add('selected');
+}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>

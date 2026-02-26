@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Velvet Threads – Premium Fashion</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#080808;--dark:#111;--charcoal:#1e1e1e;--gold:#b8954a;--gold-light:#f5e9d4;--white:#fff;--off:#f2ede8;--grey:#888;--border:rgba(255,255,255,.08);--border-light:#e8e0d8;--rose:#c4786a}
+body{font-family:'Poppins',sans-serif;background:var(--off);color:var(--black);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* TOP BAR */
+.top-bar{background:var(--black);color:var(--gold);text-align:center;padding:9px;font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase}
+
+/* NAV */
+nav{position:sticky;top:0;width:100%;z-index:100;background:rgba(242,237,232,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light);padding:0 52px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{font-family:'Bodoni Moda',serif;font-size:1.6rem;font-weight:700;letter-spacing:.05em;color:var(--black)}
+.nav-links{display:flex;gap:30px;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.06em;color:var(--grey);transition:color .2s}
+.nav-links a:hover{color:var(--black)}
+.nav-actions{display:flex;align-items:center;gap:20px}
+.nav-icon{font-size:1.2rem;cursor:pointer;position:relative}
+.nav-cnt{position:absolute;top:-5px;right:-6px;background:var(--rose);color:#fff;font-size:.5rem;font-weight:700;width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh}
+@media(max-width:768px){.hero{grid-template-columns:1fr}}
+.hero-left{background:var(--black);display:flex;flex-direction:column;justify-content:center;padding:80px 64px;position:relative;overflow:hidden}
+.hero-left::after{content:'';position:absolute;bottom:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(184,149,74,.06)}
+.season-tag{font-size:.64rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.hero h1{font-family:'Bodoni Moda',serif;font-size:clamp(3rem,5.5vw,5rem);color:var(--white);line-height:1.05;margin-bottom:20px;font-weight:700}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:.92rem;color:rgba(255,255,255,.5);line-height:1.9;font-weight:300;margin-bottom:40px;max-width:380px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--black);padding:14px 32px;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;font-family:'Poppins',sans-serif}
+.btn-gold:hover{background:#a8843a;transform:translateY(-2px)}
+.btn-ghost-d{background:transparent;color:var(--white);padding:14px 32px;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.25);cursor:pointer;transition:all .3s;font-family:'Poppins',sans-serif}
+.btn-ghost-d:hover{border-color:rgba(255,255,255,.7)}
+.hero-right{background:linear-gradient(160deg,#e8d8c8 0%,#d4c0a8 50%,#c0a888 100%);display:flex;align-items:center;justify-content:center;font-size:8rem;position:relative;overflow:hidden}
+.hero-badge-float{position:absolute;top:28px;right:28px;background:#fff;padding:14px 18px;border-radius:4px;box-shadow:0 8px 30px rgba(0,0,0,.12);text-align:center}
+.hbf-n{font-family:'Bodoni Moda',serif;font-size:1.8rem;font-weight:700;color:var(--black)}
+.hbf-l{font-size:.65rem;font-weight:600;letter-spacing:.12em;color:var(--grey);text-transform:uppercase}
+
+/* MARQUEE */
+.marquee-wrap{overflow:hidden;background:var(--gold);padding:12px 0}
+.marquee-inner{display:flex;gap:50px;animation:mq 20s linear infinite;white-space:nowrap;width:max-content}
+.mqi{font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:12px}
+.mqi::after{content:'◆';font-size:.4rem;color:rgba(255,255,255,.4)}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* NEW ARRIVALS */
+.new-arrivals{padding:90px 52px;background:var(--off)}
+.sec-head{text-align:center;margin-bottom:52px}
+.sec-head .tag{font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block}
+.sec-head h2{font-family:'Bodoni Moda',serif;font-size:2.8rem;color:var(--black);margin-bottom:8px}
+.sec-head p{font-size:.86rem;color:var(--grey);font-weight:400}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px;max-width:1200px;margin:0 auto}
+.prod-card{background:var(--white);cursor:pointer;overflow:hidden;transition:transform .3s}
+.prod-card:hover{transform:translateY(-6px)}
+.prod-img{height:320px;position:relative;display:flex;align-items:center;justify-content:center;font-size:5rem;overflow:hidden}
+.pi1{background:linear-gradient(160deg,#e8d8c8,#d4bca0)}
+.pi2{background:linear-gradient(160deg,#1a1a2e,#2d2d4e)}
+.pi3{background:linear-gradient(160deg,#1e3520,#2d4830)}
+.pi4{background:linear-gradient(160deg,#3d1a1a,#5c2828)}
+.prod-tag{position:absolute;top:12px;left:12px;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px}
+.tag-new{background:var(--black);color:var(--white)}
+.tag-sale{background:var(--rose);color:var(--white)}
+.tag-ltd{background:var(--gold);color:var(--black)}
+.wishlist-btn{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.9);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;cursor:pointer;opacity:0;transition:opacity .2s}
+.prod-card:hover .wishlist-btn{opacity:1}
+.quick-add{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.85);color:#fff;text-align:center;padding:12px;font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transform:translateY(100%);transition:transform .3s;cursor:pointer}
+.prod-card:hover .quick-add{transform:translateY(0)}
+.prod-body{padding:18px 16px}
+.prod-name{font-family:'Bodoni Moda',serif;font-size:1.05rem;color:var(--black);margin-bottom:3px}
+.prod-color{font-size:.72rem;color:var(--grey);font-weight:400;margin-bottom:10px}
+.prod-footer{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-size:.95rem;font-weight:600;color:var(--black)}
+.prod-price del{color:var(--grey);font-weight:400;margin-right:5px;font-size:.85rem}
+.color-dots{display:flex;gap:5px}
+.cdot{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.12);cursor:pointer}
+
+/* LOOKBOOK */
+.lookbook{display:grid;grid-template-columns:1fr 1fr;min-height:500px}
+@media(max-width:768px){.lookbook{grid-template-columns:1fr}}
+.lb-visual{background:linear-gradient(135deg,#2d1a0e,#1a0d06);display:flex;align-items:center;justify-content:center;font-size:8rem;min-height:400px}
+.lb-content{background:var(--gold-light);padding:70px 56px;display:flex;flex-direction:column;justify-content:center}
+.lb-content .tag{font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.lb-content h2{font-family:'Bodoni Moda',serif;font-size:2.4rem;color:var(--black);margin-bottom:16px;line-height:1.2}
+.lb-content p{font-size:.86rem;color:#6b5a4a;line-height:1.9;font-weight:400;margin-bottom:28px}
+.btn-dark{background:var(--black);color:var(--white);padding:13px 28px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif;display:inline-block}
+.btn-dark:hover{background:var(--charcoal)}
+
+/* SIZE GUIDE */
+.size-guide{background:var(--black);padding:70px 52px;text-align:center}
+.size-guide h2{font-family:'Bodoni Moda',serif;font-size:2rem;color:var(--white);margin-bottom:12px}
+.size-guide p{color:rgba(255,255,255,.5);font-size:.86rem;margin-bottom:40px}
+.size-table{max-width:700px;margin:0 auto;border:1px solid rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
+.size-table table{width:100%;border-collapse:collapse;font-size:.82rem}
+.size-table th{background:rgba(184,149,74,.15);color:var(--gold);font-weight:600;letter-spacing:.08em;padding:12px 16px;text-align:left}
+.size-table td{padding:11px 16px;border-top:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.65)}
+.size-table tr:hover td{background:rgba(255,255,255,.03)}
+
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);padding:30px 52px;display:flex;justify-content:space-between;align-items:center;font-size:.76rem;color:rgba(255,255,255,.25);flex-wrap:wrap;gap:10px}
+footer span{color:var(--gold)}
+
+.demo-badge{position:fixed;top:112px;right:20px;background:var(--gold);color:var(--black);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:20px;z-index:999;box-shadow:0 4px 20px rgba(184,149,74,.4)}
+
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .nav-links{display:none;position:relative;transform:none;left:auto}
+  .hero-left{padding:50px 24px}
+  .new-arrivals{padding:60px 20px}
+  .lookbook .lb-content{padding:40px 28px}
+  .size-guide{padding:60px 20px}
+  footer{padding:20px}
+}
+</style>
+</head>
+<body>
+<div class="demo-badge">👗 Demo Site</div>
+
+<div class="top-bar">Free express shipping on orders above ₹5,000 · Free returns within 30 days</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Velvet Threads</div>
+    <ul class="nav-links">
+      <li><a href="#new">New In</a></li>
+      <li><a href="#lookbook">Lookbook</a></li>
+      <li><a href="#new">Sale</a></li>
+      <li><a href="#new">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-icon">🔍</div>
+      <div class="nav-icon">♡</div>
+      <div class="nav-icon">🛍️<div class="nav-cnt">2</div></div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="season-tag">Summer/Autumn Collection 2025</div>
+    <h1>Luxury<br>Reimagined<br><em>For You.</em></h1>
+    <p class="hero-sub">Ethically sourced fabrics. Masterfully tailored. Designed for the woman who doesn't follow trends — she sets them.</p>
+    <div class="hero-btns">
+      <a href="#new" class="btn-gold">Shop the Collection</a>
+      <a href="#lookbook" class="btn-ghost-d">View Lookbook</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    👗
+    <div class="hero-badge-float">
+      <div class="hbf-n">₹12L</div>
+      <div class="hbf-l">Launch Month Revenue</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span class="mqi">Free Shipping Over ₹5,000</span>
+    <span class="mqi">Ethically Sourced</span>
+    <span class="mqi">30-Day Free Returns</span>
+    <span class="mqi">Exclusive Membership</span>
+    <span class="mqi">New Arrivals Every Friday</span>
+    <span class="mqi">Free Shipping Over ₹5,000</span>
+    <span class="mqi">Ethically Sourced</span>
+    <span class="mqi">30-Day Free Returns</span>
+    <span class="mqi">Exclusive Membership</span>
+    <span class="mqi">New Arrivals Every Friday</span>
+  </div>
+</div>
+
+<section class="new-arrivals" id="new">
+  <div class="sec-head">
+    <span class="tag">New Arrivals</span>
+    <h2>The Summer Edit</h2>
+    <p>Curated pieces from our latest collection — limited runs, handcrafted quality</p>
+  </div>
+  <div class="prod-grid">
+    <div class="prod-card">
+      <div class="prod-img pi1">
+        <span class="prod-tag tag-new">New</span>
+        <div class="wishlist-btn">♡</div>
+        <div class="quick-add" onclick="alert('Added to bag!')">Quick Add</div>
+        👗
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Ivory Silk Kaftan</div>
+        <div class="prod-color">Ivory Cream · 3 colours</div>
+        <div class="prod-footer">
+          <div class="prod-price">₹8,500</div>
+          <div class="color-dots"><div class="cdot" style="background:#f5efe6"></div><div class="cdot" style="background:#c8b4a0"></div><div class="cdot" style="background:#1a1a1a"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img pi2">
+        <span class="prod-tag tag-ltd">Limited</span>
+        <div class="wishlist-btn">♡</div>
+        <div class="quick-add" onclick="alert('Added to bag!')">Quick Add</div>
+        🥻
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Midnight Velvet Gown</div>
+        <div class="prod-color">Midnight Blue · 1 colour</div>
+        <div class="prod-footer">
+          <div class="prod-price">₹22,000</div>
+          <div class="color-dots"><div class="cdot" style="background:#1a1a2e"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img pi3">
+        <span class="prod-tag tag-new">New</span>
+        <div class="wishlist-btn">♡</div>
+        <div class="quick-add" onclick="alert('Added to bag!')">Quick Add</div>
+        👔
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Forest Linen Blazer</div>
+        <div class="prod-color">Forest Green · 2 colours</div>
+        <div class="prod-footer">
+          <div class="prod-price">₹14,500</div>
+          <div class="color-dots"><div class="cdot" style="background:#1e3520"></div><div class="cdot" style="background:#8b6914"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img pi4">
+        <span class="prod-tag tag-sale">Sale</span>
+        <div class="wishlist-btn">♡</div>
+        <div class="quick-add" onclick="alert('Added to bag!')">Quick Add</div>
+        👘
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Crimson Wrap Dress</div>
+        <div class="prod-color">Burgundy Red · 2 colours</div>
+        <div class="prod-footer">
+          <div class="prod-price"><del>₹12,000</del>₹8,400</div>
+          <div class="color-dots"><div class="cdot" style="background:#8b1a1a"></div><div class="cdot" style="background:#f5e6d0"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lookbook" id="lookbook">
+  <div class="lb-visual">🌅</div>
+  <div class="lb-content">
+    <span class="tag">2025 Lookbook</span>
+    <h2>The Art of Effortless Dressing</h2>
+    <p>This season, we explore the intersection of luxury and ease — pieces that move with you, work for every occasion, and never go out of style. Shot in Jaipur, Ooty and Mumbai.</p>
+    <a href="#new" class="btn-dark">Explore the Lookbook →</a>
+  </div>
+</section>
+
+<section class="size-guide">
+  <h2>Size Guide</h2>
+  <p>All measurements in centimetres. When in between sizes, size up.</p>
+  <div class="size-table">
+    <table>
+      <thead><tr><th>Size</th><th>Bust</th><th>Waist</th><th>Hips</th></tr></thead>
+      <tbody>
+        <tr><td>XS (6)</td><td>80–84</td><td>62–66</td><td>88–92</td></tr>
+        <tr><td>S (8)</td><td>84–88</td><td>66–70</td><td>92–96</td></tr>
+        <tr><td>M (10)</td><td>88–92</td><td>70–74</td><td>96–100</td></tr>
+        <tr><td>L (12)</td><td>92–97</td><td>74–79</td><td>100–105</td></tr>
+        <tr><td>XL (14)</td><td>97–102</td><td>79–84</td><td>105–110</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Velvet Threads · Mumbai, India</span>
+  <span>Website by <span>Peak Digital</span></span>
+</footer>
+</body>
+</html>

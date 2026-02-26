@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AquaPure – Smart Water Purification SaaS</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#0066ff;--blue-dark:#0044bb;--blue-glow:rgba(0,102,255,.25);--cyan:#00c8ff;--dark:#05080f;--dark2:#0c1220;--dark3:#131d30;--white:#fff;--off:#d8e4f8;--grey:#6b7fa0;--border:rgba(0,102,255,.15);--border-white:rgba(255,255,255,.07)}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--dark);color:var(--off);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(5,8,15,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-white);padding:0 48px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.15rem;color:var(--white)}
+.logo-drop{width:28px;height:28px;background:linear-gradient(135deg,var(--blue),var(--cyan));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.8rem}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--grey);transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-right{display:flex;gap:10px}
+.btn-ghost-nav{background:transparent;color:var(--white);padding:9px 18px;border:1px solid var(--border-white);border-radius:6px;font-size:.8rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s}
+.btn-ghost-nav:hover{border-color:var(--blue)}
+.btn-blue-nav{background:var(--blue);color:#fff;padding:9px 18px;border:none;border-radius:6px;font-size:.8rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s}
+.btn-blue-nav:hover{background:var(--blue-dark)}
+
+.hero{min-height:100vh;padding:120px 48px 80px;position:relative;display:flex;align-items:center;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(0,102,255,.2),transparent 70%)}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(0,102,255,0.15)'/%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:2;max-width:860px;margin:0 auto}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,102,255,.12);border:1px solid var(--border);color:var(--cyan);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px;border-radius:20px;margin-bottom:24px}
+.hero h1{font-size:clamp(2.8rem,6vw,5rem);font-weight:800;color:var(--white);line-height:1.05;margin-bottom:20px}
+.hero h1 .grad{background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.05rem;color:var(--grey);line-height:1.85;max-width:580px;margin:0 auto 40px;font-weight:400}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.btn-blue{background:var(--blue);color:#fff;padding:14px 32px;border-radius:8px;font-size:.9rem;font-weight:700;transition:all .2s;display:inline-block;box-shadow:0 8px 30px var(--blue-glow)}
+.btn-blue:hover{background:var(--blue-dark);transform:translateY(-2px)}
+.btn-text{color:var(--off);padding:14px 20px;font-size:.9rem;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:gap .2s}
+.btn-text:hover{gap:14px}
+.hero-logos{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.78rem;color:var(--grey);flex-wrap:wrap}
+.logo-chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.lc{background:var(--dark3);border:1px solid var(--border-white);padding:6px 14px;border-radius:4px;font-size:.74rem;font-weight:600;color:var(--grey)}
+
+.dashboard-preview{max-width:900px;margin:0 auto;position:relative;z-index:2}
+.dash-frame{background:var(--dark2);border:1px solid var(--border-white);border-radius:12px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.dash-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--dark3);border-bottom:1px solid var(--border-white)}
+.dash-dot{width:10px;height:10px;border-radius:50%}
+.dd-r{background:#ff5f57}.dd-y{background:#ffbd2e}.dd-g{background:#28c840}
+.dash-url{flex:1;background:rgba(255,255,255,.04);border-radius:4px;padding:5px 12px;font-size:.72rem;color:var(--grey);margin:0 10px}
+.dash-body{padding:20px;display:grid;grid-template-columns:200px 1fr;gap:16px;min-height:300px}
+.dash-sidebar{display:flex;flex-direction:column;gap:6px}
+.ds-item{padding:8px 12px;border-radius:6px;font-size:.73rem;font-weight:600;color:var(--grey);cursor:pointer}
+.ds-item.active{background:rgba(0,102,255,.15);color:var(--blue)}
+.dash-main{display:flex;flex-direction:column;gap:12px}
+.metric-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mc{background:var(--dark3);border:1px solid var(--border-white);border-radius:8px;padding:14px}
+.mc-label{font-size:.65rem;color:var(--grey);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.mc-val{font-size:1.4rem;font-weight:700;color:var(--white)}
+.mc-change{font-size:.65rem;color:#4dff88;margin-top:3px;font-weight:600}
+.chart-area{background:var(--dark3);border:1px solid var(--border-white);border-radius:8px;padding:14px;flex:1}
+.chart-title{font-size:.68rem;color:var(--grey);margin-bottom:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.mini-chart{display:flex;align-items:flex-end;gap:4px;height:80px}
+.mc-bar{flex:1;border-radius:3px 3px 0 0;background:linear-gradient(to top,var(--blue),var(--cyan));opacity:.7;transition:opacity .2s}
+.mc-bar:hover{opacity:1}
+
+.features{padding:100px 48px;background:var(--dark)}
+.feat-header{text-align:center;max-width:600px;margin:0 auto 60px}
+.chip{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.2);padding:5px 14px;border-radius:20px;display:inline-block;margin-bottom:14px}
+.feat-header h2{font-size:2.6rem;font-weight:800;color:var(--white);margin-bottom:12px;line-height:1.15}
+.feat-header p{color:var(--grey);font-size:.92rem;line-height:1.8}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px;max-width:1200px;margin:0 auto}
+.feat-card{background:var(--dark2);padding:36px;transition:background .3s}
+.feat-card:hover{background:var(--dark3)}
+.feat-ico{width:48px;height:48px;background:rgba(0,102,255,.12);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px}
+.feat-card h3{font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px}
+.feat-card p{font-size:.84rem;color:var(--grey);line-height:1.8}
+
+.pricing{padding:100px 48px;background:var(--dark2);text-align:center}
+.pricing h2{font-size:2.6rem;font-weight:800;color:var(--white);margin-bottom:14px}
+.pricing p{color:var(--grey);font-size:.92rem;margin-bottom:54px}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;max-width:960px;margin:0 auto}
+.price-card{background:var(--dark3);padding:36px;text-align:left;border:1px solid var(--border-white);transition:all .3s}
+.price-card.featured{background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(0,200,255,.08));border-color:var(--blue)}
+.price-plan{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-bottom:12px}
+.price-card.featured .price-plan{color:var(--cyan)}
+.price-val{font-size:2.8rem;font-weight:800;color:var(--white);margin-bottom:4px}
+.price-val span{font-size:1rem;font-weight:500;color:var(--grey)}
+.price-freq{font-size:.78rem;color:var(--grey);margin-bottom:24px}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.price-features li{font-size:.82rem;color:var(--off);display:flex;gap:8px;align-items:center}
+.price-features li::before{content:'✓';color:var(--cyan);font-weight:700;font-size:.85rem}
+.price-btn{width:100%;padding:13px;border-radius:6px;font-size:.86rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
+.pb-blue{background:var(--blue);color:#fff;border:none}
+.pb-blue:hover{background:var(--blue-dark)}
+.pb-ghost{background:transparent;color:var(--white);border:1px solid var(--border-white)}
+.pb-ghost:hover{border-color:var(--blue)}
+
+footer{background:var(--dark);border-top:1px solid var(--border-white);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font-size:.76rem;color:var(--grey);flex-wrap:wrap;gap:10px}
+footer span{color:var(--cyan)}
+
+.demo-badge{position:fixed;top:74px;right:20px;background:var(--blue);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:20px;z-index:999;box-shadow:0 4px 20px var(--blue-glow)}
+
+@media(max-width:768px){
+  .metric-cards{grid-template-columns:repeat(2,1fr)}
+  .dash-body{grid-template-columns:1fr}
+  .dash-sidebar{display:none}
+}
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:100px 20px 60px}
+  .features,.pricing{padding:60px 20px}
+  footer{padding:20px}
+}
+</style>
+</head>
+<body>
+<div class="demo-badge">💧 Demo Site</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><div class="logo-drop">💧</div>AquaPure</div>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#demo">Demo</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="btn-ghost-nav" onclick="alert('Sign In (demo)')">Sign In</button>
+      <button class="btn-blue-nav" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Start Free Trial</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-pill">🌏 Serving Asia-Pacific · Singapore HQ</div>
+    <h1>Water Purification.<br><span class="grad">Intelligently Managed.</span></h1>
+    <p class="hero-sub">AquaPure's IoT-connected SaaS platform monitors, manages and optimises water purification systems at scale — from a single building to a city grid.</p>
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn-blue">Start Free 30-Day Trial</a>
+      <a href="#demo" class="btn-text">Watch Demo →</a>
+    </div>
+    <div class="hero-logos">
+      <span>Trusted by teams at:</span>
+      <div class="logo-chips">
+        <span class="lc">Marina Bay Dev</span>
+        <span class="lc">Changi Airport</span>
+        <span class="lc">PUB Singapore</span>
+        <span class="lc">JTC Corp</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="padding:0 48px 80px;position:relative;z-index:2" id="demo">
+  <div class="dashboard-preview">
+    <div class="dash-frame">
+      <div class="dash-bar">
+        <div class="dash-dot dd-r"></div><div class="dash-dot dd-y"></div><div class="dash-dot dd-g"></div>
+        <div class="dash-url">app.aquapure.sg/dashboard</div>
+      </div>
+      <div class="dash-body">
+        <div class="dash-sidebar">
+          <div class="ds-item active">📊 Dashboard</div>
+          <div class="ds-item">🌊 Systems</div>
+          <div class="ds-item">⚠️ Alerts</div>
+          <div class="ds-item">📋 Reports</div>
+          <div class="ds-item">⚙️ Settings</div>
+        </div>
+        <div class="dash-main">
+          <div class="metric-cards">
+            <div class="mc"><div class="mc-label">Systems Online</div><div class="mc-val">248</div><div class="mc-change">▲ 3 this week</div></div>
+            <div class="mc"><div class="mc-label">Water Quality</div><div class="mc-val">99.2%</div><div class="mc-change">▲ 0.4%</div></div>
+            <div class="mc"><div class="mc-label">Alerts Today</div><div class="mc-val" style="color:#ffbd2e">2</div><div class="mc-change" style="color:#ffbd2e">⚠ Attention needed</div></div>
+            <div class="mc"><div class="mc-label">Litres Processed</div><div class="mc-val">1.2M</div><div class="mc-change">▲ 8% vs yesterday</div></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-title">Water Quality Index — Last 7 Days</div>
+            <div class="mini-chart">
+              <div class="mc-bar" style="height:92%"></div>
+              <div class="mc-bar" style="height:95%"></div>
+              <div class="mc-bar" style="height:88%"></div>
+              <div class="mc-bar" style="height:97%"></div>
+              <div class="mc-bar" style="height:94%"></div>
+              <div class="mc-bar" style="height:98%"></div>
+              <div class="mc-bar" style="height:99%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="features" id="features">
+  <div class="feat-header">
+    <div class="chip">Platform Features</div>
+    <h2>Everything You Need to Manage Water at Scale</h2>
+    <p>Built for facility managers, water utilities, and smart city operators in Asia-Pacific.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card"><div class="feat-ico">📡</div><h3>Real-Time IoT Monitoring</h3><p>Sub-second sensor data from all connected purification units. TDS, pH, turbidity, flow rate and 12 more parameters.</p></div>
+    <div class="feat-card"><div class="feat-ico">🤖</div><h3>AI Predictive Maintenance</h3><p>Machine learning models predict filter replacements and system failures 14 days in advance, reducing unplanned downtime by 87%.</p></div>
+    <div class="feat-card"><div class="feat-ico">📊</div><h3>Compliance Reporting</h3><p>Auto-generated PDF reports for NEA Singapore, BCA, and WHO water quality standards. One click, audit-ready.</p></div>
+    <div class="feat-card"><div class="feat-ico">⚡</div><h3>Instant Alerts</h3><p>WhatsApp, email and SMS alerts within 3 seconds of quality deviation. Configurable thresholds per system zone.</p></div>
+    <div class="feat-card"><div class="feat-ico">🌏</div><h3>Multi-Site Management</h3><p>Manage 1 or 10,000 purification systems across Singapore, Malaysia, Indonesia and beyond from a single dashboard.</p></div>
+    <div class="feat-card"><div class="feat-ico">🔌</div><h3>Open API &amp; Integrations</h3><p>Native integrations with HubSpot, Salesforce, SAP and 40+ enterprise platforms. Full REST API with webhooks.</p></div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <h2>Simple, Transparent Pricing</h2>
+  <p>Start free, scale as you grow. No setup fees, cancel anytime.</p>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-plan">Starter</div>
+      <div class="price-val">$49<span>/mo</span></div>
+      <div class="price-freq">Up to 10 systems</div>
+      <ul class="price-features"><li>Real-time monitoring</li><li>Email alerts</li><li>Monthly reports</li><li>7-day data history</li></ul>
+      <button class="price-btn pb-ghost" onclick="alert('Starting free trial...')">Start Free Trial</button>
+    </div>
+    <div class="price-card featured">
+      <div class="price-plan">Professional</div>
+      <div class="price-val">$149<span>/mo</span></div>
+      <div class="price-freq">Up to 100 systems · Most Popular</div>
+      <ul class="price-features"><li>Everything in Starter</li><li>AI predictive maintenance</li><li>WhatsApp + SMS alerts</li><li>Compliance auto-reports</li><li>1-year data history</li><li>Priority support</li></ul>
+      <button class="price-btn pb-blue" onclick="alert('Starting free trial...')">Start Free Trial</button>
+    </div>
+    <div class="price-card">
+      <div class="price-plan">Enterprise</div>
+      <div class="price-val">Custom</div>
+      <div class="price-freq">Unlimited systems</div>
+      <ul class="price-features"><li>Everything in Pro</li><li>Custom integrations</li><li>Dedicated CSM</li><li>SLA guarantee</li><li>On-premise deployment</li></ul>
+      <button class="price-btn pb-ghost" onclick="alert('Connecting you with our enterprise team...')">Talk to Sales</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 AquaPure Pte. Ltd. · Singapore</span>
+  <span>Website by <span>Peak Digital</span></span>
+</footer>
+</body>
+</html>

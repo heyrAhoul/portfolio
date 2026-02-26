@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>GreenLeaf – Organic Health Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Fraunces:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#2d7a3a;--green-light:#e8f5ea;--green-dark:#1e5428;--yellow:#f5c518;--orange:#e8863a;--cream:#faf8f3;--text:#1c2b1e;--grey:#6b7c6e;--border:#d4e6d6;--white:#fff}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(250,248,243,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--green)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{font-size:.84rem;font-weight:600;color:var(--grey);transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.cart-btn{position:relative;font-size:1.3rem;cursor:pointer}
+.cart-count{position:absolute;top:-5px;right:-6px;background:var(--orange);color:#fff;font-size:.55rem;font-weight:800;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nav-cta{background:var(--green);color:#fff;padding:9px 20px;border-radius:20px;font-size:.82rem;font-weight:700}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px}
+@media(max-width:768px){.hero{grid-template-columns:1fr}}
+.hero-left{background:var(--green);padding:80px 56px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-left::before{content:'🌿';position:absolute;right:-40px;bottom:-40px;font-size:200px;opacity:.07;line-height:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:22px;width:fit-content}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(2.6rem,5vw,4rem);color:#fff;line-height:1.1;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--yellow)}
+.hero-sub{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.85;margin-bottom:36px;font-weight:400}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--green);padding:13px 28px;border-radius:24px;font-size:.88rem;font-weight:700;transition:all .2s}
+.btn-white:hover{background:var(--yellow)}
+.btn-trans{background:transparent;color:#fff;padding:13px 28px;border-radius:24px;font-size:.88rem;font-weight:700;border:2px solid rgba(255,255,255,.4);transition:all .2s}
+.btn-trans:hover{border-color:#fff}
+.hero-right{background:var(--green-light);padding:40px;display:flex;flex-direction:column;gap:16px;justify-content:center}
+.offer-card{background:#fff;border-radius:16px;padding:22px;border:1px solid var(--border);display:flex;gap:16px;align-items:center;transition:transform .2s;cursor:pointer}
+.offer-card:hover{transform:translateX(6px)}
+.offer-icon{font-size:2.4rem;flex-shrink:0}
+.offer-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.offer-card p{font-size:.78rem;color:var(--grey);line-height:1.6}
+.offer-badge{display:inline-block;background:var(--green-light);color:var(--green);font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:6px;border:1px solid var(--border)}
+
+/* TRUST BAR */
+.trust{background:#fff;border-bottom:1px solid var(--border);padding:18px 40px;display:flex;justify-content:center;gap:50px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--grey)}
+
+/* PRODUCTS */
+.products{padding:90px 40px;background:var(--cream)}
+.prod-header{text-align:center;margin-bottom:54px}
+.prod-header .chip{background:var(--green-light);color:var(--green);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;display:inline-block;margin-bottom:14px;border:1px solid var(--border)}
+.prod-header h2{font-family:'Fraunces',serif;font-size:2.6rem;color:var(--text);margin-bottom:10px}
+.prod-header p{color:var(--grey);font-size:.9rem}
+.prod-filter{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.pf-btn{font-size:.75rem;font-weight:700;padding:8px 18px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--grey);cursor:pointer;transition:all .2s;font-family:'Nunito',sans-serif}
+.pf-btn.active,.pf-btn:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;max-width:1100px;margin:0 auto}
+.prod-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all .3s;cursor:pointer}
+.prod-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(45,122,58,.12)}
+.prod-img{height:220px;display:flex;align-items:center;justify-content:center;font-size:4.5rem;position:relative}
+.p-tag{position:absolute;top:12px;left:12px;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:10px}
+.p-tag.organic{background:#e8f5ea;color:var(--green)}
+.p-tag.sub{background:#fff3cd;color:#856404}
+.p-tag.new{background:#fde8d8;color:var(--orange)}
+.pg1{background:linear-gradient(135deg,#e8f5ea,#c8e6cc)}
+.pg2{background:linear-gradient(135deg,#fff8e7,#ffeaa0)}
+.pg3{background:linear-gradient(135deg,#fde8d8,#f5c4a0)}
+.pg4{background:linear-gradient(135deg,#e8eef5,#c0d4e8)}
+.prod-body{padding:18px}
+.prod-name{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.prod-desc{font-size:.78rem;color:var(--grey);line-height:1.65;margin-bottom:10px}
+.prod-footer{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--green);font-weight:700}
+.prod-price del{font-size:.85rem;color:var(--grey);font-weight:400;margin-right:4px}
+.add-btn{background:var(--green);color:#fff;border:none;padding:8px 16px;border-radius:20px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Nunito',sans-serif}
+.add-btn:hover{background:var(--green-dark)}
+
+/* SUBSCRIPTION BOX */
+.sub-box{background:linear-gradient(135deg,var(--green-dark),var(--green));padding:80px 40px;text-align:center;position:relative;overflow:hidden}
+.sub-box::before{content:'📦';position:absolute;right:-30px;top:-30px;font-size:180px;opacity:.06;line-height:1}
+.sub-box h2{font-family:'Fraunces',serif;font-size:2.6rem;color:#fff;margin-bottom:14px}
+.sub-box p{color:rgba(255,255,255,.75);font-size:.95rem;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
+.sub-plans{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.sub-plan{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:24px 28px;text-align:center;cursor:pointer;transition:all .2s}
+.sub-plan:hover,.sub-plan.active{background:rgba(255,255,255,.2);border-color:var(--yellow)}
+.sub-plan-name{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:6px}
+.sub-plan-price{font-family:'Fraunces',serif;font-size:1.8rem;color:#fff}
+.sub-plan-freq{font-size:.74rem;color:rgba(255,255,255,.55)}
+.sub-plan-badge{font-size:.62rem;font-weight:700;background:var(--yellow);color:var(--green-dark);padding:2px 8px;border-radius:10px;display:inline-block;margin-top:6px}
+
+/* REVIEWS */
+.reviews-section{padding:80px 40px;background:#fff}
+.reviews-section h2{font-family:'Fraunces',serif;font-size:2.4rem;text-align:center;margin-bottom:50px;color:var(--text)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;max-width:1100px;margin:0 auto}
+.rev{background:var(--green-light);border-radius:12px;padding:24px;border:1px solid var(--border)}
+.rev-stars{color:var(--yellow);font-size:.9rem;margin-bottom:8px}
+.rev-text{font-size:.84rem;color:var(--text);line-height:1.8;margin-bottom:12px}
+.rev-author{font-size:.74rem;font-weight:700;color:var(--green)}
+
+footer{background:var(--green-dark);padding:30px 40px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:rgba(255,255,255,.35);flex-wrap:wrap;gap:10px}
+footer span{color:var(--yellow)}
+
+.demo-badge{position:fixed;top:74px;right:20px;background:var(--green);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:20px;z-index:999;box-shadow:0 4px 20px rgba(45,122,58,.4)}
+
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-left{padding:40px 24px}
+  .products,.sub-box,.reviews-section{padding:60px 20px}
+  footer{padding:20px}
+}
+</style>
+</head>
+<body>
+<div class="demo-badge">🌿 Demo Site</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🌱 GreenLeaf</div>
+    <ul class="nav-links">
+      <li><a href="#products">Shop</a></li>
+      <li><a href="#sub">Subscribe</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="cart-btn">🛒<div class="cart-count">2</div></div>
+      <a href="#sub" class="nav-cta">Subscribe &amp; Save</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">🏆 India's #1 Organic D2C Brand</div>
+    <h1>Live<br><em>Organically.</em><br>Thrive Naturally.</h1>
+    <p class="hero-sub">100% certified organic superfoods, supplements and daily health essentials — delivered fresh to your door every week.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-white">Shop Now</a>
+      <a href="#sub" class="btn-trans">Subscribe &amp; Save 20%</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="offer-card"><div class="offer-icon">🥗</div><div><h3>Weekly Veggie Box</h3><p>Farm-fresh certified organic vegetables. Sourced from 40+ farms across India.</p><span class="offer-badge">Most Popular</span></div></div>
+    <div class="offer-card"><div class="offer-icon">🌾</div><div><h3>Superfood Starter Kit</h3><p>Moringa, ashwagandha, turmeric and 8 more daily health essentials.</p><span class="offer-badge">Save ₹600</span></div></div>
+    <div class="offer-card"><div class="offer-icon">🍵</div><div><h3>Wellness Tea Collection</h3><p>12 hand-picked Ayurvedic blends for immunity, digestion, sleep and energy.</p><span class="offer-badge">New Arrival</span></div></div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-item">🌱 100% Certified Organic</div>
+  <div class="trust-item">🚚 Free Delivery Above ₹499</div>
+  <div class="trust-item">↩️ 30-Day Returns</div>
+  <div class="trust-item">🇮🇳 Sourced Across India</div>
+</div>
+
+<section class="products" id="products">
+  <div class="prod-header">
+    <div class="chip">Bestsellers</div>
+    <h2>Shop Our Range</h2>
+    <p>Every product certified organic, third-party tested, and plastic-free packaging</p>
+  </div>
+  <div class="prod-filter">
+    <button class="pf-btn active">All</button>
+    <button class="pf-btn">Superfoods</button>
+    <button class="pf-btn">Supplements</button>
+    <button class="pf-btn">Teas</button>
+    <button class="pf-btn">Boxes</button>
+  </div>
+  <div class="prod-grid">
+    <div class="prod-card">
+      <div class="prod-img pg1"><span class="p-tag organic">Organic</span>🌿</div>
+      <div class="prod-body">
+        <div class="prod-name">Organic Moringa Powder</div>
+        <div class="prod-desc">100g cold-processed moringa leaf powder. 25x more iron than spinach.</div>
+        <div class="prod-footer"><div class="prod-price"><del>₹599</del>₹449</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Cart</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img pg2"><span class="p-tag sub">Subscribe</span>🍯</div>
+      <div class="prod-body">
+        <div class="prod-name">Raw Forest Honey</div>
+        <div class="prod-desc">Single-origin wildflower honey from the Nilgiri hills. Unprocessed &amp; unpasteurised.</div>
+        <div class="prod-footer"><div class="prod-price">₹699</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Cart</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img pg3"><span class="p-tag new">New</span>🌸</div>
+      <div class="prod-body">
+        <div class="prod-name">Ashwagandha KSM-66</div>
+        <div class="prod-desc">Clinically studied root extract for stress relief, energy and hormonal balance.</div>
+        <div class="prod-footer"><div class="prod-price"><del>₹899</del>₹749</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Cart</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img pg4"><span class="p-tag organic">Organic</span>🫖</div>
+      <div class="prod-body">
+        <div class="prod-name">Immunity Chai Blend</div>
+        <div class="prod-desc">Tulsi, ginger, black pepper and 7 Ayurvedic herbs for daily immunity support.</div>
+        <div class="prod-footer"><div class="prod-price">₹399</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Cart</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sub-box" id="sub">
+  <h2>Subscribe &amp; Save 20%</h2>
+  <p>Get your favourite organic products delivered on your schedule. Skip, pause or cancel anytime.</p>
+  <div class="sub-plans">
+    <div class="sub-plan"><div class="sub-plan-name">Weekly</div><div class="sub-plan-price">₹999<span style="font-size:1rem">/wk</span></div><div class="sub-plan-freq">Every 7 days</div></div>
+    <div class="sub-plan active"><div class="sub-plan-name">Bi-Weekly</div><div class="sub-plan-price">₹1,799<span style="font-size:1rem">/2wk</span></div><div class="sub-plan-freq">Every 14 days</div><div class="sub-plan-badge">Best Value</div></div>
+    <div class="sub-plan"><div class="sub-plan-name">Monthly</div><div class="sub-plan-price">₹3,499<span style="font-size:1rem">/mo</span></div><div class="sub-plan-freq">Every 30 days</div></div>
+  </div>
+  <button class="btn-white" onclick="alert('Subscription started! First box ships within 2 days.')">Start My Subscription →</button>
+</section>
+
+<section class="reviews-section" id="reviews">
+  <h2>What Our Community Says</h2>
+  <div class="rev-grid">
+    <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"The weekly veggie box is incredible. Everything is so fresh and I love knowing it's genuinely organic. My family's health has improved so much."</p><div class="rev-author">Meera S. · Bangalore</div></div>
+    <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"The ashwagandha actually works. 3 weeks in and my stress levels feel so much more manageable. Will be subscribing forever."</p><div class="rev-author">Rohan K. · Delhi</div></div>
+    <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"Packaging is 100% plastic-free and the products are legit certified organic. Finally a brand that actually cares about the planet."</p><div class="rev-author">Neha P. · Mumbai</div></div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 GreenLeaf India</span>
+  <span>Website by <span>Peak Digital</span></span>
+</footer>
+
+<script>
+document.querySelectorAll('.pf-btn').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.pf-btn').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+  });
+});
+document.querySelectorAll('.sub-plan').forEach(function(p){
+  p.addEventListener('click',function(){
+    document.querySelectorAll('.sub-plan').forEach(function(x){x.classList.remove('active')});
+    p.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NovaTech GmbH – Industrial Automation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#0047CC;--blue-dark:#002d80;--blue-light:#e8f0ff;--black:#0a0e1a;--white:#fff;--grey:#6b7280;--border:#e5e7eb;--text:#111827}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+nav{position:fixed;top:0;width:100%;z-index:100;background:#fff;border-bottom:1px solid var(--border);padding:0 48px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:var(--black)}
+.logo-mark{width:32px;height:32px;background:var(--blue);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;font-weight:700}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.84rem;font-weight:500;color:var(--grey);transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.lang-switch{display:flex;gap:8px}
+.lang-btn{font-size:.72rem;font-weight:600;color:var(--grey);padding:4px 10px;border:1px solid var(--border);border-radius:4px;cursor:pointer;background:none;font-family:'Inter',sans-serif;transition:all .2s}
+.lang-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.nav-cta{background:var(--blue);color:#fff;padding:9px 22px;border-radius:6px;font-size:.82rem;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:var(--blue-dark)}
+
+.hero{padding:140px 48px 100px;background:var(--black);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(0,71,204,.35),transparent)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto}
+@media(max-width:768px){.hero-grid{grid-template-columns:1fr}}
+.hero-label{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);background:rgba(0,71,204,.15);border:1px solid rgba(0,71,204,.3);padding:5px 14px;border-radius:20px;display:inline-block;margin-bottom:22px}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:20px}
+.hero h1 span{color:#4d9fff}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.55);line-height:1.85;font-weight:300;margin-bottom:36px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn-blue{background:var(--blue);color:#fff;padding:13px 28px;border-radius:6px;font-size:.84rem;font-weight:600;transition:all .2s;display:inline-block}
+.btn-blue:hover{background:#0055ee;transform:translateY(-1px)}
+.btn-wh{background:rgba(255,255,255,.08);color:#fff;padding:13px 28px;border-radius:6px;font-size:.84rem;font-weight:600;border:1px solid rgba(255,255,255,.15);transition:all .2s;display:inline-block}
+.btn-wh:hover{background:rgba(255,255,255,.15)}
+.hero-visual{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:28px;overflow:hidden}
+.metric-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px}
+.metric{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:18px}
+.metric-n{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:#4d9fff;margin-bottom:2px}
+.metric-l{font-size:.72rem;color:rgba(255,255,255,.4);font-weight:500}
+.chart-bars{display:flex;align-items:flex-end;gap:6px;height:100px;margin-top:8px}
+.bar{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(to top,#0047CC,#4d9fff)}
+.bar-label{font-size:.6rem;color:rgba(255,255,255,.3);text-align:center;margin-top:4px}
+
+.trust-bar{background:#fff;border-bottom:1px solid var(--border);padding:22px 48px;display:flex;align-items:center;justify-content:center;gap:60px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:600;color:var(--grey)}
+.trust-ico{font-size:1.2rem}
+
+.services{padding:90px 48px;background:#f9fafb}
+.section-head{max-width:560px;margin:0 auto 60px;text-align:center}
+.section-head .chip{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);background:var(--blue-light);padding:4px 14px;border-radius:20px;display:inline-block;margin-bottom:14px}
+.section-head h2{font-family:'Space Grotesk',sans-serif;font-size:2.4rem;font-weight:700;color:var(--black);margin-bottom:12px}
+.section-head p{font-size:.92rem;color:var(--grey);line-height:1.8}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1200px;margin:0 auto}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:32px;transition:all .3s;cursor:default}
+.svc-card:hover{border-color:var(--blue);box-shadow:0 4px 24px rgba(0,71,204,.1);transform:translateY(-3px)}
+.svc-ico{width:48px;height:48px;background:var(--blue-light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px}
+.svc-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--black);margin-bottom:10px}
+.svc-card p{font-size:.85rem;color:var(--grey);line-height:1.75}
+
+.stats{background:var(--blue);padding:70px 48px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1000px;margin:0 auto;text-align:center}
+@media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.s-num{font-family:'Space Grotesk',sans-serif;font-size:2.8rem;font-weight:700;color:#fff;margin-bottom:6px}
+.s-label{font-size:.78rem;color:rgba(255,255,255,.65);font-weight:500;letter-spacing:.06em}
+
+.clients{padding:70px 48px;background:#fff}
+.clients h2{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;color:var(--grey);text-align:center;letter-spacing:.18em;text-transform:uppercase;margin-bottom:40px}
+.client-logos{display:flex;justify-content:center;align-items:center;gap:50px;flex-wrap:wrap}
+.client-logo{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:rgba(107,114,128,.4);letter-spacing:.05em;transition:color .2s}
+.client-logo:hover{color:var(--blue)}
+
+.contact{background:var(--black);padding:90px 48px;text-align:center}
+.contact h2{font-family:'Space Grotesk',sans-serif;font-size:2.4rem;font-weight:700;color:#fff;margin-bottom:14px}
+.contact p{color:rgba(255,255,255,.5);font-size:.95rem;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
+.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:680px;margin:0 auto 20px}
+@media(max-width:600px){.contact-form{grid-template-columns:1fr}}
+.c-inp{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:13px 16px;color:#fff;font-size:.88rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+.c-inp:focus{border-color:var(--blue)}
+.c-inp::placeholder{color:rgba(255,255,255,.3)}
+.c-inp.full{grid-column:1/-1}
+
+footer{background:#050810;padding:24px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.05);font-size:.78rem;color:rgba(255,255,255,.25);flex-wrap:wrap;gap:10px}
+footer span{color:#4d9fff}
+
+.demo-badge{position:fixed;top:78px;right:20px;background:var(--blue);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:20px;z-index:999;box-shadow:0 4px 20px rgba(0,71,204,.4)}
+
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:100px 20px 60px}
+  .services{padding:60px 20px}
+  .clients{padding:50px 20px}
+  .contact{padding:60px 20px}
+  .trust-bar{padding:20px}
+  .stats{padding:50px 20px}
+  footer{padding:20px}
+}
+</style>
+</head>
+<body>
+<div class="demo-badge">🏭 Demo Site</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><div class="logo-mark">NT</div>NovaTech GmbH</div>
+    <ul class="nav-links">
+      <li><a href="#services">Solutions</a></li>
+      <li><a href="#stats">About</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button class="lang-btn active">EN</button>
+        <button class="lang-btn">DE</button>
+        <button class="lang-btn">FR</button>
+      </div>
+      <a href="#contact" class="nav-cta">Request Demo</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-label">Industrial Automation · Berlin, Germany</div>
+      <h1>Precision<br>Automation for<br><span>Industry 4.0</span></h1>
+      <p class="hero-sub">NovaTech delivers end-to-end automation solutions for manufacturing, logistics, and process industries across Europe and beyond.</p>
+      <div class="hero-ctas">
+        <a href="#services" class="btn-blue">Explore Solutions</a>
+        <a href="#contact" class="btn-wh">Request a Demo</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="metric-row">
+        <div class="metric"><div class="metric-n">98.7%</div><div class="metric-l">Uptime SLA</div></div>
+        <div class="metric"><div class="metric-n">340+</div><div class="metric-l">Installations</div></div>
+        <div class="metric"><div class="metric-n">22ms</div><div class="metric-l">Response Time</div></div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:16px;border:1px solid rgba(255,255,255,.06)">
+        <div style="font-size:.7rem;color:rgba(255,255,255,.4);margin-bottom:10px;font-weight:500">PRODUCTION EFFICIENCY — Q4 2025</div>
+        <div class="chart-bars">
+          <div><div class="bar" style="height:55%"></div><div class="bar-label">Oct</div></div>
+          <div><div class="bar" style="height:68%"></div><div class="bar-label">Nov</div></div>
+          <div><div class="bar" style="height:72%"></div><div class="bar-label">Dec</div></div>
+          <div><div class="bar" style="height:65%"></div><div class="bar-label">Jan</div></div>
+          <div><div class="bar" style="height:88%"></div><div class="bar-label">Feb</div></div>
+          <div><div class="bar" style="height:95%"></div><div class="bar-label">Mar</div></div>
+          <div><div class="bar" style="height:100%"></div><div class="bar-label">Now</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-ico">🇩🇪</span> Engineered in Germany</div>
+  <div class="trust-item"><span class="trust-ico">🔒</span> ISO 27001 Certified</div>
+  <div class="trust-item"><span class="trust-ico">🌍</span> 18 Countries Served</div>
+  <div class="trust-item"><span class="trust-ico">⚡</span> 24/7 Support</div>
+</div>
+
+<section class="services" id="services">
+  <div class="section-head">
+    <div class="chip">Our Solutions</div>
+    <h2>Built for Modern Industry</h2>
+    <p>From robotics integration to predictive maintenance — NovaTech covers the full automation stack.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="svc-ico">🤖</div><h3>Robotics Integration</h3><p>Turnkey robotic cell design, programming and commissioning for assembly, welding and material handling applications.</p></div>
+    <div class="svc-card"><div class="svc-ico">📊</div><h3>Predictive Maintenance</h3><p>AI-powered anomaly detection using IoT sensors to prevent unplanned downtime and extend equipment lifespan.</p></div>
+    <div class="svc-card"><div class="svc-ico">🏭</div><h3>SCADA &amp; MES Systems</h3><p>Real-time production monitoring, OEE tracking, and seamless ERP integration for complete factory visibility.</p></div>
+    <div class="svc-card"><div class="svc-ico">🔗</div><h3>IIoT Connectivity</h3><p>Edge computing devices and cloud platforms that connect legacy machines to modern Industry 4.0 ecosystems.</p></div>
+    <div class="svc-card"><div class="svc-ico">🛡️</div><h3>Cybersecurity for OT</h3><p>Operational technology security assessments, network segmentation, and continuous threat monitoring for industrial environments.</p></div>
+    <div class="svc-card"><div class="svc-ico">📋</div><h3>Consulting &amp; Training</h3><p>Digital transformation roadmaps, operator training programs and ongoing technical support across 18 countries.</p></div>
+  </div>
+</section>
+
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div><div class="s-num">340+</div><div class="s-label">Installations Worldwide</div></div>
+    <div><div class="s-num">18</div><div class="s-label">Countries Served</div></div>
+    <div><div class="s-num">98.7%</div><div class="s-label">Average Uptime</div></div>
+    <div><div class="s-num">2003</div><div class="s-label">Founded in Berlin</div></div>
+  </div>
+</section>
+
+<section class="clients" id="clients">
+  <h2>Trusted By Industry Leaders</h2>
+  <div class="client-logos">
+    <div class="client-logo">BASF</div>
+    <div class="client-logo">SIEMENS</div>
+    <div class="client-logo">BOSCH</div>
+    <div class="client-logo">AIRBUS</div>
+    <div class="client-logo">THYSSEN</div>
+    <div class="client-logo">VOLKSWAGEN</div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Request a Demo</h2>
+  <p>Speak with an automation engineer about your specific challenges. No obligation.</p>
+  <div class="contact-form">
+    <input class="c-inp" placeholder="First Name"/>
+    <input class="c-inp" placeholder="Last Name"/>
+    <input class="c-inp" placeholder="Company" type="text"/>
+    <input class="c-inp" placeholder="Work Email" type="email"/>
+    <input class="c-inp full" placeholder="Tell us about your automation challenge..."/>
+  </div>
+  <button class="btn-blue" onclick="alert('Demo request sent! An engineer will contact you within 24h.')">Request Free Demo →</button>
+</section>
+
+<footer>
+  <span>© 2025 NovaTech GmbH · Berlin</span>
+  <span>Website by <span>Peak Digital</span></span>
+</footer>
+
+<script>
+document.querySelectorAll('.lang-btn').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.lang-btn').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    alert('Language switched to '+b.textContent+' (demo)');
+  });
+});
+</script>
+</body>
+</html>

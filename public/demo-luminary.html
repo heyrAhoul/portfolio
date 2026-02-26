@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Luminary Co. – Premium Skincare</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0e0e0e;--cream:#faf7f2;--rose:#c8896a;--rose-light:#f0d5c4;--text:#2c2c2c;--grey:#8a8a8a}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(250,247,242,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,137,106,.15);padding:18px 48px;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:500;letter-spacing:.1em;color:var(--black)}
+.nav-logo span{color:var(--rose)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);transition:color .2s}
+.nav-links a:hover{color:var(--rose)}
+.nav-cart{position:relative;cursor:pointer;font-size:1.3rem}
+.cart-count{position:absolute;top:-6px;right:-6px;background:var(--rose);color:#fff;font-size:.55rem;font-weight:600;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding-top:80px}
+@media(max-width:768px){.hero{grid-template-columns:1fr}}
+.hero-left{padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
+.hero-tag{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:20px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;color:var(--black);line-height:1.1;margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero-sub{font-size:.95rem;color:var(--grey);line-height:1.9;font-weight:300;max-width:400px;margin-bottom:40px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-dark{background:var(--black);color:#fff;padding:14px 34px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;font-family:'Jost',sans-serif}
+.btn-dark:hover{background:var(--rose)}
+.btn-ghost{background:transparent;color:var(--black);padding:14px 34px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(0,0,0,.2);cursor:pointer;transition:all .3s;font-family:'Jost',sans-serif}
+.btn-ghost:hover{border-color:var(--rose);color:var(--rose)}
+.hero-right{height:100vh;background:linear-gradient(135deg,var(--rose-light) 0%,#e8c4a8 50%,#f5d5be 100%);display:flex;align-items:center;justify-content:center;font-size:8rem;position:relative;overflow:hidden}
+.hero-right::after{content:'';position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:rgba(200,137,106,.15)}
+
+/* MARQUEE */
+.marquee-wrap{overflow:hidden;background:var(--black);padding:14px 0}
+.marquee{display:flex;gap:50px;animation:marq 18s linear infinite;white-space:nowrap;width:max-content}
+.mi{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:14px}
+.mi::after{content:'✦';color:var(--rose);font-size:.5rem}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* PRODUCTS */
+.products{padding:100px 48px}
+.section-header{text-align:center;margin-bottom:60px}
+.section-header .tag{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
+.section-header h2{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--black);margin-bottom:12px}
+.section-header p{color:var(--grey);font-size:.9rem;font-weight:300}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+.prod-card{position:relative;background:#fff;overflow:hidden;cursor:pointer;transition:transform .4s}
+.prod-card:hover{transform:translateY(-8px)}
+.prod-img{height:300px;display:flex;align-items:center;justify-content:center;font-size:5rem;transition:transform .4s;position:relative;overflow:hidden}
+.prod-img::before{content:'';position:absolute;inset:0;background:rgba(200,137,106,0);transition:background .3s}
+.prod-card:hover .prod-img::before{background:rgba(200,137,106,.08)}
+.prod-label{position:absolute;top:14px;left:14px;background:var(--rose);color:#fff;font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px}
+.prod-body{padding:20px}
+.prod-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--black);margin-bottom:4px}
+.prod-sub{font-size:.78rem;color:var(--grey);font-weight:300;margin-bottom:12px}
+.prod-footer{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--rose)}
+.add-btn{background:var(--black);color:#fff;border:none;padding:8px 18px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s;font-family:'Jost',sans-serif}
+.add-btn:hover{background:var(--rose)}
+.prod-stars{color:var(--rose);font-size:.8rem;margin-bottom:8px}
+
+/* RITUAL */
+.ritual{background:var(--black);padding:100px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:768px){.ritual{grid-template-columns:1fr;gap:40px}}
+.ritual-steps{display:flex;flex-direction:column;gap:28px}
+.ritual-step{display:flex;gap:20px;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--rose);font-weight:300;line-height:1;min-width:40px}
+.step-content h3{font-family:'Jost',sans-serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:#fff;margin-bottom:6px}
+.step-content p{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.8;font-weight:300}
+.ritual-right{text-align:right}
+@media(max-width:768px){.ritual-right{text-align:left}}
+.ritual-right .tag{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;display:block}
+.ritual-right h2{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:#fff;line-height:1.2;margin-bottom:20px}
+.ritual-right p{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.85;font-weight:300;margin-bottom:30px}
+
+/* REVIEWS */
+.reviews{padding:100px 48px;background:#fff}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.review-card{padding:32px;border:1px solid var(--rose-light)}
+.rev-stars{color:var(--rose);margin-bottom:12px;font-size:.9rem}
+.rev-text{font-size:.88rem;color:var(--grey);line-height:1.9;font-weight:300;font-style:italic;margin-bottom:16px}
+.rev-author{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--black);font-weight:500}
+.rev-item{font-size:.7rem;color:var(--rose);margin-top:2px}
+
+/* FOOTER */
+.site-footer{background:var(--black);padding:60px 48px 30px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:0}
+@media(max-width:768px){.site-footer{grid-template-columns:1fr 1fr}}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#fff;margin-bottom:14px}
+.footer-desc{font-size:.82rem;color:rgba(255,255,255,.35);line-height:1.8;font-weight:300;max-width:220px}
+.footer-col h4{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:10px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:.84rem;color:rgba(255,255,255,.4);transition:color .2s}
+.footer-col ul a:hover{color:var(--rose)}
+.footer-bottom{background:var(--black);padding:20px 48px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;font-size:.74rem;color:rgba(255,255,255,.25);flex-wrap:wrap;gap:10px}
+.footer-bottom span{color:var(--rose)}
+
+.demo-badge{position:fixed;top:80px;right:20px;background:var(--rose);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:20px;z-index:999;box-shadow:0 4px 20px rgba(200,137,106,.4)}
+.bg1{background:linear-gradient(135deg,#fce4d6,#f9d0ba)}
+.bg2{background:linear-gradient(135deg,#d6e8e4,#b8d4cf)}
+.bg3{background:linear-gradient(135deg,#e8d6f0,#d4b8e4)}
+.bg4{background:linear-gradient(135deg,#f0e8d0,#e4d4b0)}
+
+@media(max-width:600px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .hero-left{padding:40px 24px}
+  .products{padding:60px 20px}
+  .ritual{padding:60px 20px}
+  .reviews{padding:60px 20px}
+  .site-footer{padding:40px 20px 20px;grid-template-columns:1fr}
+  .footer-bottom{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-badge">💄 Demo Site</div>
+
+<nav>
+  <div class="nav-logo">LUMINARY<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#ritual">Ritual</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">About</a></li>
+  </ul>
+  <div class="nav-cart">🛒<div class="cart-count">3</div></div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Luxury Skincare · Delhi, India</div>
+    <h1>Skin Science.<br><em>Elevated</em><br>Beautifully.</h1>
+    <p class="hero-sub">Formulated with rare botanicals and cutting-edge actives. Cruelty-free, dermatologist-tested, made for the modern woman.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-dark">Shop the Range</a>
+      <a href="#ritual" class="btn-ghost">Our Ritual</a>
+    </div>
+  </div>
+  <div class="hero-right bg1">🌸</div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span class="mi">Free Shipping Over ₹1,499</span>
+    <span class="mi">Cruelty Free &amp; Vegan</span>
+    <span class="mi">Dermatologist Tested</span>
+    <span class="mi">30-Day Returns</span>
+    <span class="mi">2,000+ 5-Star Reviews</span>
+    <span class="mi">Free Shipping Over ₹1,499</span>
+    <span class="mi">Cruelty Free &amp; Vegan</span>
+    <span class="mi">Dermatologist Tested</span>
+    <span class="mi">30-Day Returns</span>
+    <span class="mi">2,000+ 5-Star Reviews</span>
+  </div>
+</div>
+
+<section class="products" id="products">
+  <div class="section-header">
+    <div class="tag">Bestsellers</div>
+    <h2>The Edit</h2>
+    <p>Our most-loved formulas, crafted for visible results</p>
+  </div>
+  <div class="products-grid">
+    <div class="prod-card">
+      <div class="prod-img bg1">✨<div class="prod-label">Bestseller</div></div>
+      <div class="prod-body">
+        <div class="prod-stars">★★★★★ (284)</div>
+        <div class="prod-name">Radiance Serum</div>
+        <div class="prod-sub">Vitamin C · Niacinamide · Hyaluronic Acid</div>
+        <div class="prod-footer"><div class="prod-price">₹2,499</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Bag</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img bg2">🌿<div class="prod-label">New</div></div>
+      <div class="prod-body">
+        <div class="prod-stars">★★★★★ (142)</div>
+        <div class="prod-name">Barrier Repair Cream</div>
+        <div class="prod-sub">Ceramides · Peptides · Squalane</div>
+        <div class="prod-footer"><div class="prod-price">₹3,299</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Bag</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img bg3">💧</div>
+      <div class="prod-body">
+        <div class="prod-stars">★★★★☆ (98)</div>
+        <div class="prod-name">Glow Toner Mist</div>
+        <div class="prod-sub">Rose Water · AHA · Aloe Vera</div>
+        <div class="prod-footer"><div class="prod-price">₹1,799</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Bag</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img bg4">☀️<div class="prod-label">SPF 50</div></div>
+      <div class="prod-body">
+        <div class="prod-stars">★★★★★ (367)</div>
+        <div class="prod-name">Invisible Sunscreen</div>
+        <div class="prod-sub">SPF 50+ PA++++ · No White Cast</div>
+        <div class="prod-footer"><div class="prod-price">₹1,599</div><button class="add-btn" onclick="alert('Added to cart!')">Add to Bag</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ritual" id="ritual">
+  <div class="ritual-steps">
+    <div class="ritual-step"><div class="step-num">01</div><div class="step-content"><h3>Cleanse</h3><p>Begin with our gentle micellar cleanser to remove impurities without stripping your skin's natural barrier.</p></div></div>
+    <div class="ritual-step"><div class="step-num">02</div><div class="step-content"><h3>Tone</h3><p>Apply our Glow Toner Mist to prep skin and enhance absorption of subsequent actives.</p></div></div>
+    <div class="ritual-step"><div class="step-num">03</div><div class="step-content"><h3>Treat</h3><p>Target your skin concern with our concentrated serums — brightening, anti-aging, or hydration.</p></div></div>
+    <div class="ritual-step"><div class="step-num">04</div><div class="step-content"><h3>Protect</h3><p>Seal in moisture and shield skin from UV damage with our invisible SPF 50+ sunscreen.</p></div></div>
+  </div>
+  <div class="ritual-right">
+    <span class="tag">The Luminary Method</span>
+    <h2>Science-Led.<br>Sensory-Driven.</h2>
+    <p>Every product in our range is formulated with clinical precision and tested by leading dermatologists. Because your skin deserves more than promises — it deserves proof.</p>
+    <a href="#products" class="btn-dark" style="display:inline-block">Shop the Ritual →</a>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="section-header" style="margin-bottom:50px">
+    <div class="tag">Customer Love</div>
+    <h2>2,000+ Glowing Reviews</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"The Radiance Serum completely transformed my skin in 3 weeks. Dark spots are visibly lighter and my skin glows all day."</p>
+      <div class="rev-author">Kavya R.</div>
+      <div class="rev-item">Verified purchase · Radiance Serum</div>
+    </div>
+    <div class="review-card">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"Finally a sunscreen I forget I'm wearing. No white cast, no greasiness. My foundation sits perfectly on top."</p>
+      <div class="rev-author">Ananya M.</div>
+      <div class="rev-item">Verified purchase · Invisible Sunscreen</div>
+    </div>
+    <div class="review-card">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"The barrier cream saved my reactive skin. After just two weeks my skin stopped flaking and feels so plump and calm."</p>
+      <div class="rev-author">Ritika S.</div>
+      <div class="rev-item">Verified purchase · Barrier Repair Cream</div>
+    </div>
+  </div>
+</section>
+
+<div class="site-footer" id="contact">
+  <div>
+    <div class="footer-brand">LUMINARY.</div>
+    <p class="footer-desc">Premium skincare crafted with science and soul. Delhi, India.</p>
+  </div>
+  <div class="footer-col"><h4>Shop</h4><ul><li><a href="#">Serums</a></li><li><a href="#">Moisturisers</a></li><li><a href="#">Suncare</a></li><li><a href="#">Bundles</a></li></ul></div>
+  <div class="footer-col"><h4>Info</h4><ul><li><a href="#">Our Story</a></li><li><a href="#">Ingredients</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Blog</a></li></ul></div>
+  <div class="footer-col"><h4>Help</h4><ul><li><a href="#">Track Order</a></li><li><a href="#">Returns</a></li><li><a href="#">Contact Us</a></li></ul></div>
+</div>
+<div class="footer-bottom"><span>© 2025 Luminary Co.</span><span>Website by <span>Peak Digital</span></span></div>
+
+</body>
+</html>
